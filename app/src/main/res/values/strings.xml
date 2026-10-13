@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DAM API REST App</string>
+    <string name="title_login">Iniciar Sesión</string>
+    <string name="title_products">Catálogo de Productos</string>
+    <string name="hint_email">Correo Electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Ingresar</string>
+    <string name="btn_logout">Cerrar Sesión</string>
+    <string name="error_empty_fields">Por favor complete todos los campos</string>
+    <string name="error_auth">Credenciales incorrectas o servidor no disponible</string>
+    <string name="error_load_products">Error al cargar productos</string>
+    <string name="empty_products">No hay productos registrados</string>
+    <string name="lbl_code">Código: %1$d</string>
+    <string name="status_active">Activo</string>
+    <string name="status_inactive">Inactivo</string>
+</resources>
