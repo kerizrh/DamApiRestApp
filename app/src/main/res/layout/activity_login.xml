@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
-                android:text="Ingeniería de Sistemas - UES"
+                android:text="Ingeniería en Desarrollo de software - UES"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
 
