@@ -22,6 +22,11 @@ public class Product {
         this.status = status;
     }
 
+    public Product(String name, Boolean status) {
+        this.name = name;
+        this.status = status;
+    }
+
     public Integer getCode() {
         return code;
     }

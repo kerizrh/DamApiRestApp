@@ -3,6 +3,7 @@ package com.dam.apirestapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,10 +17,25 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
+    public interface OnProductActionListener {
+        void onEdit(Product product);
+        void onDelete(Product product);
+    }
+
     private List<Product> productList;
+    private OnProductActionListener actionListener;
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public ProductAdapter(List<Product> productList, OnProductActionListener actionListener) {
+        this.productList = productList;
+        this.actionListener = actionListener;
+    }
+
+    public void setOnProductActionListener(OnProductActionListener listener) {
+        this.actionListener = listener;
     }
 
     public void updateList(List<Product> newList) {
@@ -48,6 +64,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             holder.tvStatus.setText("Estado: Inactivo");
             holder.tvStatus.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.status_red));
         }
+
+        holder.btnEdit.setOnClickListener(v -> {
+            if (actionListener != null) {
+                actionListener.onEdit(product);
+            }
+        });
+
+        holder.btnDelete.setOnClickListener(v -> {
+            if (actionListener != null) {
+                actionListener.onDelete(product);
+            }
+        });
     }
 
     @Override
@@ -59,12 +87,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView tvCode;
         TextView tvName;
         TextView tvStatus;
+        ImageButton btnEdit;
+        ImageButton btnDelete;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             tvCode = itemView.findViewById(R.id.tvProductCode);
             tvName = itemView.findViewById(R.id.tvProductName);
             tvStatus = itemView.findViewById(R.id.tvProductStatus);
+            btnEdit = itemView.findViewById(R.id.btnEditProduct);
+            btnDelete = itemView.findViewById(R.id.btnDeleteProduct);
         }
     }
 }

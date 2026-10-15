@@ -47,6 +47,12 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         btnLogin.setOnClickListener(v -> performLogin());
+
+        Button btnGoToRegister = findViewById(R.id.btnGoToRegister);
+        btnGoToRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void performLogin() {
